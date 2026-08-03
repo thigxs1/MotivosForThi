@@ -99,7 +99,7 @@ main {
     position: relative;
     padding: 15px;
     cursor: pointer;
-    text-align: center;
+    text-align: left;
     color: var(--mc-btn-text);
     text-shadow: var(--mc-text-shadow);
     font-size: 1rem;
@@ -142,8 +142,9 @@ main {
 .button-content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 15px;
+    padding-left: 10px;
 }
 
 .button-icon {
