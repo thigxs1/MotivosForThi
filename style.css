@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --mc-text-shadow: 2px 2px 0px #3f3f3f;
+    --mc-btn-bg: #7d7d7d;
+    --mc-btn-border-light: #ffffff;
+    --mc-btn-border-dark: #373737;
+    --mc-btn-border-outer: #000000;
+    --mc-btn-hover: #8f8f8f;
+    --mc-btn-text: #e0e0e0;
+    --mc-btn-text-hover: #ffffa0;
+    --mc-yellow: #ffff00;
+    --mc-panel-bg: rgba(45, 45, 45, 0.9);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    background: url('images/minecraft_panorama.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Fundo Panorâmico - leve efeito de animação */
+.panorama-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: -1;
+}
+
+/* Cabeçalho e Título */
+header {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+}
+
+.mc-title {
+    font-size: 3rem;
+    color: #e0e0e0;
+    text-shadow: 4px 4px 0px #3f3f3f, -2px -2px 0px #000;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.splash-text {
+    position: absolute;
+    bottom: -20px;
+    right: 10%;
+    color: var(--mc-yellow);
+    font-size: 1rem;
+    text-shadow: 2px 2px 0px #3f3f3f;
+    transform: rotate(-15deg);
+    animation: splashPulse 0.5s alternate infinite ease-in-out;
+    white-space: nowrap;
+}
+
+@keyframes splashPulse {
+    from { transform: rotate(-15deg) scale(1); }
+    to { transform: rotate(-15deg) scale(1.1); }
+}
+
+/* Área Principal - Menus/Botões */
+main {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+    flex: 1;
+}
+
+/* Estilo do Botão Minecraft */
+.mc-button {
+    background-color: var(--mc-btn-bg);
+    border: 2px solid var(--mc-btn-border-outer);
+    position: relative;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    color: var(--mc-btn-text);
+    text-shadow: var(--mc-text-shadow);
+    font-size: 1rem;
+    box-shadow: 
+        inset 2px 2px 0px var(--mc-btn-border-light), 
+        inset -2px -2px 0px var(--mc-btn-border-dark),
+        inset 2px -2px 0px var(--mc-btn-border-dark),
+        inset -2px 2px 0px var(--mc-btn-border-light);
+    line-height: 1.5;
+    transition: filter 0.1s;
+    user-select: none;
+}
+
+.mc-button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px solid transparent;
+    pointer-events: none;
+}
+
+.mc-button:hover {
+    background-color: var(--mc-btn-hover);
+    color: var(--mc-btn-text-hover);
+}
+
+.mc-button:hover::after {
+    border-color: #ffffff; /* Borda branca de hover do Minecraft */
+}
+
+.mc-button:active {
+    box-shadow: 
+        inset 2px 2px 0px var(--mc-btn-border-dark), 
+        inset -2px -2px 0px var(--mc-btn-border-light);
+    padding-top: 17px;
+    padding-bottom: 13px;
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.button-icon {
+    font-size: 1.5rem;
+}
+
+/* Conteúdo Expandido (Modal/Inventário) */
+.mc-panel {
+    display: none;
+    background-color: var(--mc-panel-bg);
+    border: 3px solid var(--mc-btn-border-outer);
+    padding: 20px;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    box-shadow: 
+        inset 3px 3px 0px var(--mc-btn-border-light), 
+        inset -3px -3px 0px var(--mc-btn-border-dark);
+    color: white;
+    text-shadow: 1px 1px 0px #3f3f3f;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.mc-panel.active {
+    display: block;
+    animation: popIn 0.2s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.mc-panel img, .mc-panel video {
+    max-width: 100%;
+    border: 3px solid #000;
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 0px #3f3f3f;
+}
+
+/* Botão Específico WhatsApp */
+.wa-button {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-top: 20px;
+    border: 2px solid #000;
+    box-shadow: 
+        inset 2px 2px 0px #5aff8d, 
+        inset -2px -2px 0px #1a9c4a;
+    text-shadow: 2px 2px 0px #1a9c4a;
+    transition: transform 0.1s;
+    text-align: center;
+    width: 100%;
+}
+
+.wa-button:active {
+    box-shadow: 
+        inset 2px 2px 0px #1a9c4a, 
+        inset -2px -2px 0px #5aff8d;
+}
+
+/* Rodapé */
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    text-shadow: 1px 1px 0px #000;
+    margin-top: auto;
+}
+
+footer a {
+    color: #a0a0a0;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .mc-title {
+        font-size: 2rem;
+    }
+    .splash-text {
+        font-size: 0.8rem;
+        right: 5%;
+        bottom: -30px;
+    }
+    .mc-button {
+        font-size: 0.8rem;
+        padding: 12px;
+    }
+    .button-icon {
+        font-size: 1.2rem;
+    }
+}
