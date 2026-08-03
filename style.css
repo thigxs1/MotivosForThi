@@ -59,10 +59,10 @@ header {
 
 .splash-text {
     position: absolute;
-    bottom: -5px;
-    right: 10%;
+    bottom: 10px;
+    right: 25%;
     color: var(--mc-yellow);
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-shadow: 2px 2px 0px #3f3f3f;
     transform: rotate(-15deg);
     animation: splashPulse 0.5s alternate infinite ease-in-out;
@@ -234,9 +234,9 @@ footer a:hover {
         max-width: 80%;
     }
     .splash-text {
-        font-size: 0.55rem;
+        font-size: 0.35rem;
         right: 10%;
-        bottom: 0px;
+        bottom: 5px;
     }
     .mc-button {
         font-size: 0.7rem;
