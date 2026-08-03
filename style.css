@@ -49,20 +49,25 @@ header {
     max-width: 800px;
 }
 
+.logo-container {
+    position: relative;
+    display: inline-block;
+    max-width: 400px;
+    width: 100%;
+}
+
 .mc-logo {
     width: 100%;
-    max-width: 400px;
     height: auto;
-    margin-bottom: 5px;
     filter: drop-shadow(4px 4px 0px #3f3f3f);
 }
 
 .splash-text {
     position: absolute;
-    bottom: 10px;
-    right: 25%;
+    bottom: -10px;
+    right: -20px;
     color: var(--mc-yellow);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-shadow: 2px 2px 0px #3f3f3f;
     transform: rotate(-15deg);
     animation: splashPulse 0.5s alternate infinite ease-in-out;
@@ -230,13 +235,13 @@ footer a:hover {
 
 /* Responsividade */
 @media (max-width: 600px) {
-    .mc-logo {
-        max-width: 80%;
+    .logo-container {
+        max-width: 75%;
     }
     .splash-text {
-        font-size: 0.35rem;
-        right: 10%;
-        bottom: 5px;
+        font-size: 0.38rem;
+        right: -15px;
+        bottom: -5px;
     }
     .mc-button {
         font-size: 0.7rem;
